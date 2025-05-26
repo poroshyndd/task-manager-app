@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Menedżer zadań</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Menedżer zadań</h1>
+
+  <!-- Formularz dodawania zadania -->
+  <form id="task-form">
+    <input type="text" id="task-content" placeholder="Nazwa zadania" required />
+    <input type="date" id="task-deadline" />
+    <select id="task-priority" required>
+      <option value="low">Niski</option>
+      <option value="medium" selected>Średni</option>
+      <option value="high">Wysoki</option>
+    </select>
+    <select id="task-category" required>
+      <option value="work">Praca</option>
+      <option value="study">Nauka</option>
+      <option value="hobby">Hobby</option>
+    </select>
+    <button type="submit">Dodaj zadanie</button>
+  </form>
+
+  <!-- Sortowanie -->
+  <div id="sort-wrapper">
+    <select id="sort-tasks">
+      <option value="date-desc">Najnowsze najpierw</option>
+      <option value="date-asc">Najstarsze najpierw</option>
+      <option value="priority">Według priorytetu</option>
+      <option value="deadline-asc">Według terminu ↑</option>
+      <option value="deadline-desc">Według terminu ↓</option>
+    </select>
+  </div>
+
+  <!-- Wyszukiwanie -->
+  <div id="search-wrapper">
+    <input type="text" id="search-input" placeholder="Szukaj zadań..." />
+  </div>
+
+  <!-- Eksport / Import -->
+  <div id="backup-controls">
+    <button id="export-tasks">📤 Eksport</button>
+    <input type="file" id="import-tasks" accept=".json" />
+  </div>
+
+  <h2>Lista zadań</h2>
+  <ul id="task-list" class="filtered-task-list"></ul>
+  
+  <!-- Statystyki -->
+  <div id="task-stats">
+    <p>Wszystkich zadań: <span id="stat-total">0</span></p>
+    <p>Ukończone: <span id="stat-done">0</span></p>
+    <p>Oczekujące: <span id="stat-pending">0</span></p>
+  </div>
+
+  <!-- Filtry -->
+  <div id="filters">
+    <button data-filter="all">Wszystkie</button>
+    <button data-filter="pending">Oczekujące</button>
+    <button data-filter="done">Ukończone</button>
+    <button data-filter="overdue">Przeterminowane</button>
+    <button data-filter="soon">Wkrótce wygasające</button>
+  </div>
+
+  <!-- Kategorie -->
+  <div id="category-filters">
+    <button data-category="all">Wszystkie kategorie</button>
+    <button data-category="work">Praca</button>
+    <button data-category="study">Nauka</button>
+    <button data-category="hobby">Hobby</button>
+  </div>
+
+  <!-- Komunikat toast -->
+  <div id="toast"></div>
+
+  <script type="module" src="script/app.js"></script>
+</body>
+</html>

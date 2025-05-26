@@ -1,0 +1,265 @@
+/* === ОСНОВНОЕ === */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* === СТИЛИ ПРИОРИТЕТОВ === */
+.priority-low {
+  background-color: #e0ffe0;
+  border-left: 5px solid green;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.priority-medium {
+  background-color: #fff5cc;
+  border-left: 5px solid orange;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.priority-high {
+  background-color: #ffe0e0;
+  border-left: 5px solid red;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+/* === АНИМАЦИИ ЗАДАЧ === */
+.task-item {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeIn 0.3s forwards;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-item span {
+  flex: 1;
+}
+
+.task-item.removing {
+  animation: fadeOut 0.3s forwards;
+}
+
+/* === КНОПКИ ЗАДАЧ === */
+.task-item button {
+  margin-left: 6px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.task-item button:hover {
+  transform: scale(1.2);
+}
+
+/* === АНИМАЦИЯ === */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* === ПЕРЕТАСКИВАНИЕ === */
+.dragging {
+  opacity: 0.5;
+}
+
+.drag-over {
+  outline: 2px dashed #888;
+}
+
+/* === ПРОСРОЧЕННЫЕ ЗАДАЧИ === */
+.overdue {
+  border-left: 5px solid red;
+  background-color: #ffe6e6;
+}
+
+/* === TOAST === */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+/* === BACKUP === */
+#backup-controls {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#backup-controls button,
+#backup-controls input[type="file"] {
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* === МОДАЛКА === */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal button {
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* === ПОДСВЕТКА ПО ДЕДЛАЙНУ === */
+.soon-deadline {
+  background-color: #fff8e1;
+  border-left: 5px solid #ffa726;
+}
+
+.task-overdue {
+  background-color: #ffd6d6;
+  border-left: 5px solid red;
+}
+
+.task-soon {
+  background-color: #fff4cc;
+  border-left: 2px solid orange;
+}
+
+.task-ok {
+  background-color: #d6ffd6;
+  border-left: 5px solid green;
+}
+
+/* === КАТЕГОРИИ === */
+.badge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 0.75em;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-left: 6px;
+  color: #fff;
+}
+
+.category-work {
+  background-color: #007bff;
+}
+
+.category-study {
+  background-color: #28a745;
+}
+
+.category-hobby {
+  background-color: #ffc107;
+}
+
+/* === КАЛЕНДАРЬ НА МЕСЯЦ === */
+.calendar-grid-month {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background-color: #ccc;
+  margin-top: 20px;
+  min-height: 80vh;
+}
+
+.calendar-day {
+  background: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ccc;
+  min-height: 100px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.calendar-day h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.task-block {
+  font-size: 13px;
+  margin: 4px 0;
+  padding: 4px;
+  border-radius: 4px;
+  background: #e8f5e9;
+}
+
+/* === СПИСОК ЗАДАЧ ПОД КАЛЕНДАРЕМ === */
+.filtered-task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.filtered-task-list li {
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  border-left: 5px solid #999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filtered-task-list li.task-overdue {
+  background-color: #ffe5e5;
+  border-left-color: red;
+}
+
+.filtered-task-list li.task-soon {
+  background-color: #fff4cc;
+  border-left-color: orange;
+}
+
+.filtered-task-list li.task-ok {
+  background-color: #e0ffe0;
+  border-left-color: green;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "task-manager-app",
+  "version": "1.0.0",
+  "description": "Prosta aplikacja internetowa do zarządzania zadaniami z terminami i kategoriami",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "keywords": [
+    "task-manager",
+    "todo",
+    "lite-server",
+    "javascript",
+    "frontend"
+  ],
+  "author": "Twoje Imię",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
