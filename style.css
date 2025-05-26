@@ -1,10 +1,8 @@
-/* === ОСНОВНОЕ === */
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
 }
 
-/* === СТИЛИ ПРИОРИТЕТОВ === */
 .priority-low {
   background-color: #e0ffe0;
   border-left: 5px solid green;
@@ -29,7 +27,6 @@ body {
   border-radius: 4px;
 }
 
-/* === АНИМАЦИИ ЗАДАЧ === */
 .task-item {
   opacity: 0;
   transform: translateY(-10px);
@@ -47,7 +44,6 @@ body {
   animation: fadeOut 0.3s forwards;
 }
 
-/* === КНОПКИ ЗАДАЧ === */
 .task-item button {
   margin-left: 6px;
   background: none;
@@ -65,7 +61,6 @@ body {
   transform: scale(1.2);
 }
 
-/* === АНИМАЦИЯ === */
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -80,7 +75,6 @@ body {
   }
 }
 
-/* === ПЕРЕТАСКИВАНИЕ === */
 .dragging {
   opacity: 0.5;
 }
@@ -89,13 +83,11 @@ body {
   outline: 2px dashed #888;
 }
 
-/* === ПРОСРОЧЕННЫЕ ЗАДАЧИ === */
 .overdue {
   border-left: 5px solid red;
   background-color: #ffe6e6;
 }
 
-/* === TOAST === */
 #toast {
   position: fixed;
   bottom: 20px;
@@ -110,7 +102,6 @@ body {
   z-index: 9999;
 }
 
-/* === BACKUP === */
 #backup-controls {
   margin: 10px 0;
   display: flex;
@@ -125,7 +116,6 @@ body {
   cursor: pointer;
 }
 
-/* === МОДАЛКА === */
 .modal {
   position: fixed;
   top: 50%;
@@ -154,7 +144,6 @@ body {
   cursor: pointer;
 }
 
-/* === ПОДСВЕТКА ПО ДЕДЛАЙНУ === */
 .soon-deadline {
   background-color: #fff8e1;
   border-left: 5px solid #ffa726;
@@ -175,7 +164,6 @@ body {
   border-left: 5px solid green;
 }
 
-/* === КАТЕГОРИИ === */
 .badge {
   display: inline-block;
   padding: 2px 6px;
@@ -198,7 +186,6 @@ body {
   background-color: #ffc107;
 }
 
-/* === КАЛЕНДАРЬ НА МЕСЯЦ === */
 .calendar-grid-month {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -231,7 +218,6 @@ body {
   background: #e8f5e9;
 }
 
-/* === СПИСОК ЗАДАЧ ПОД КАЛЕНДАРЕМ === */
 .filtered-task-list {
   list-style: none;
   padding: 0;
